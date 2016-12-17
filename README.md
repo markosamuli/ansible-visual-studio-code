@@ -12,4 +12,4 @@ The task definition is from [caarlos0/machine](https://github.com/caarlos0/machi
 License
 -------
 
-BSD
+MIT
