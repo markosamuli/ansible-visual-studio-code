@@ -7,11 +7,11 @@ matrix:
       sudo: false
       language: generic
       python: 
-       - 2.7
+       - "2.7"
     - os: osx
       language: generic
       python: 
-       - 2.7
+       - "2.7"
 
 # Install ansible
 addons:
