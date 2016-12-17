@@ -1,0 +1,17 @@
+---
+
+# TODO: use official ubuntu PPA when it's available:
+# https://github.com/Microsoft/vscode/issues/2973
+
+- name: Ubuntu | Add VisualStudio Code apt keys
+  apt_key: 
+    url: https://tagplus5.github.io/vscode-ppa/ubuntu/gpg.key
+
+- name: Ubuntu | Add VisualStudio Code repository
+  apt_repository: 
+    repo: 'deb https://tagplus5.github.io/vscode-ppa/ubuntu ./'
+
+- name: Ubuntu | Install VisualStudio Code
+  package: 
+    name: code
+    state: latest
