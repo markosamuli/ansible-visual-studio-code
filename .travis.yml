@@ -40,6 +40,10 @@ install:
       printf '\n[privilege_escalation]\nbecome=True' >> ansible.cfg 
     fi
 
+before_script:
+  # https://github.com/travis-ci/travis-ci/issues/6307
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then rvm get head || true; fi
+
 script:
   # Basic role syntax check 
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check 
