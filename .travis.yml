@@ -4,7 +4,7 @@ matrix:
   include:
     - os: linux
       dist: trusty
-      sudo: false
+      sudo: required
       language: generic
       python: 
        - "2.7"
@@ -13,7 +13,7 @@ matrix:
       python: 
        - "2.7"
 
-# Install ansible
+# Install Ansible
 addons:
   apt:
     packages:
@@ -32,13 +32,22 @@ install:
   - ansible --version
 
   # Create ansible.cfg with correct roles_path
-  - printf '[defaults]\nroles_path=../' > ansible.cfg
+  - printf '[defaults]\nroles_path=../\n' > ansible.cfg
+
+  # Configure ansible.cfg on Linux
+  - >
+    if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then 
+      printf '\n[privilege_escalation]\nbecome=True' >> ansible.cfg 
+    fi
 
 script:
   # Basic role syntax check 
   - ansible-playbook tests/test.yml -i tests/inventory --syntax-check 
+
   # Test role run
-  - "ansible-playbook tests/test.yml -i tests/inventory --connection=local"
+  - >
+    ansible-playbook tests/test.yml -i tests/inventory --connection=local
+
   # Test idempotence
   - >
     ansible-playbook tests/test.yml -i tests/inventory --connection=local
