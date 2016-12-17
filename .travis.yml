@@ -20,12 +20,12 @@ addons:
     - python-pip
 
 before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update         ; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ansible; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update        ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python; fi
 
 install:
   # Install ansible
-  - if [[ "$TRAVIS_OS_NAME" != "osx" ]]; then pip install ansible; fi
+  - pip install ansible
 
   # Check ansible version
   - ansible --version
