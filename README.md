@@ -7,7 +7,7 @@ Install [Visual Studio Code](https://github.com/Microsoft/vscode) on Ubuntu and 
 
 Used in [markosamuli/machine](https://github.com/markosamuli/machine) playbook for setting my workstations.
 
-The task definition is from [caarlos0/machin](https://github.com/caarlos0/machine) repository.
+The task definition is from [caarlos0/machine](https://github.com/caarlos0/machine) repository.
 
 License
 -------
