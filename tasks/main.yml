@@ -2,7 +2,7 @@
 # tasks file for markosamuli.visual-studio-code
 
 - include: Ubuntu.yml
-  when: "{{ ansible_distribution == 'Ubuntu' }}"
+  when: ansible_distribution == 'Ubuntu'
 
 - include: Darwin.yml
-  when: "{{ ansible_os_family == 'Darwin' }}"
+  when: ansible_os_family == 'Darwin'
